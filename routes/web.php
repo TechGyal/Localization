@@ -11,6 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route fo changing language
+Route::get('lang/{language}', 'LocalizationController@index')->name('locale');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
